@@ -10,7 +10,6 @@ app = Flask(__name__)
 CORS(app,origins=["http://localhost:5173"])
 
 # Cargar el modelo
-model = load_model("model/modelo_skin.h5")
 
 # Clases en el mismo orden que en el entrenamiento
 CLASSES = ["melanoma", "normal_skin", "psoriasis"]
@@ -21,6 +20,7 @@ def index():
 
 @app.route("/predict", methods=["POST"])
 def predict():
+    model = load_model("model/modelo_skin.h5")
     if 'image' not in request.files:
         return jsonify({"error": "No image file provided"}), 400
 
