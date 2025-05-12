@@ -7,7 +7,7 @@ import io
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+CORS(app,origins=["http://localhost:5173"])
 
 # Cargar el modelo
 model = load_model("model/modelo_skin.h5")
