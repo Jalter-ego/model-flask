@@ -10,7 +10,9 @@ app = Flask(__name__)
 CORS(app)
 
 # Cargar el modelo
+print("cargando modelo...")
 model = load_model("model/modelo_skin.h5") 
+print("modelo cargado...")
 # Clases en el mismo orden que en el entrenamiento
 CLASSES = ["melanoma", "normal_skin", "psoriasis"]
 
